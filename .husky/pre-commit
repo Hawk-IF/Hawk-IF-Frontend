@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+if [ "$CURRENT_BRANCH" = "develop" ] || [ "$CURRENT_BRANCH" = "staging" ] || [ "$CURRENT_BRANCH" = "main" ]; then
+  echo "🚨 Main branch detected ($CURRENT_BRANCH). Running full validations..."
+  
+  echo "-> Running quick lint (lint-staged)..."
+  npm exec -- lint-staged  --relative || exit 1
+
+  echo "-> Running full lint..."
+  npm run lint || exit 1
+
+  echo "-> Running Type check..."
+  npm run type-check || exit 1
+
+  echo "-> Running Tests..."
+  npm run test || exit 1
+
+else
+  echo "🌱 Feature branch detected ($CURRENT_BRANCH). Running lint-staged only..."
+  npm exec -- lint-staged  --relative || exit 1
+fi

@@ -5,7 +5,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  root: "./infraestructure/adapters/input/web", 
+  root: "./src/infraestructure/adapters/input/web", 
   plugins: [
     react(),
     tailwindcss(),

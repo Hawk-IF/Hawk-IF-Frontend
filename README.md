@@ -1,12 +1,12 @@
 # HawkIF Frontend
 
-Frontend do projeto **Hawk-IF**, construído em **React + TypeScript + Vite**, seguindo os princípios da **Arquitetura Hexagonal (Ports & Adapters)**.
+Frontend do projeto **Hawk-IF**. Esse repositório busca entregar uma interface WEB com acessibilidade, segurança e otimização, consumindo o Backend do projeto para 
 
 ---
 
 ## 🧱 Arquitetura
 
-O projeto adota **Arquitetura Hexagonal**, separando o código em camadas bem definidas:
+O projeto adota **Arquitetura Limpa**, separando o código em camadas bem definidas:
 
 ```text
 ├── core/               # Núcleo compartilhado do sistema
@@ -30,28 +30,30 @@ O projeto adota **Arquitetura Hexagonal**, separando o código em camadas bem de
 
 ```text
 hawk-if-frontend/
-├── core/
-├── domain/
-│   ├── entities/
-│   └── exceptions/
-├── application/
-│   ├── ports/
-│   │   ├── input/
-│   │   └── output/
-│   └── usecases/
-├── infraestructure/
-│   └── adapters/
-│       ├── input/
-│       │   └── web/
-│       └── output/
-│           └── api/
+├── src/
+│   ├── core/
+│   ├── domain/
+│   │   ├── entities/
+│   │   └── exceptions/
+│   ├── application/
+│   │   ├── ports/
+│   │   │   ├── input/
+│   │   │   └── output/
+│   │   └── usecases/
+│   ├── infraestructure/
+│   │   └── adapters/
+│   │       ├── input/
+│   │       │   └── web/
+│   │       └── output/
+│   │           └── api/
 ├── tests/
 ├── vite.config.mts
 ├── package.json
+├── eslint.config.js
 └── tsconfig.json
 ```
 
-> **Importante:** o `vite.config.ts` define `root: "./infraestructure/adapters/input/web"`. Isso significa que o **entrypoint da aplicação web** (o `index.html`) fica em `infraestructure/adapters/input/web/`. O `dist/` será gerado **dentro dessa mesma pasta** (`./infraestructure/adapters/input/web/dist`), pois `outDir` é relativo ao `root`.
+> **Importante:** o `vite.config.ts` define `root: "./src/infraestructure/adapters/input/web"`. Isso significa que o **entrypoint da aplicação web** (o `index.html`) fica em `src/infraestructure/adapters/input/web/`. O `dist/` será gerado **dentro dessa mesma pasta** (`./src/infraestructure/adapters/input/web/dist`), pois `outDir` é relativo ao `root`.
 
 ---
 
@@ -107,7 +109,7 @@ npm install
 npm run web
 ```
 
-O Vite sobe o dev server apontando para `infraestructure/adapters/input/web`.
+O Vite sobe o dev server apontando para `src/infraestructure/adapters/input/web`.
 
 ---
 
@@ -119,9 +121,9 @@ npm run build-web
 
 Isso executa:
 1. `tsc` — checagem de tipos.
-2. `vite build` — gera o bundle em `infraestructure/adapters/input/web/dist`.
+2. `vite build` — gera o bundle em `src/infraestructure/adapters/input/web/dist`.
 
-### Outros scripts úteis
+## Outros scripts úteis
 
 | Script | Descrição |
 |---|---|

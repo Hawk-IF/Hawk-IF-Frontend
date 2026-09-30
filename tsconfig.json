@@ -25,12 +25,13 @@
 
     "paths": {
       "@/*": ["./*"],
+      "@core/*": ["./src/core/*"],
       "@application/*": ["./src/application/*"],
       "@domain/*": ["./src/domain/*"],
       "@infra/*": ["./src/infraestructure/*"],
       "@web/*": ["./src/infraestructure/adapters/input/web/*"],
       "@api/*": ["./src/infraestructure/adapters/output/api/*"],
-      "@tests/*": ["./src/tests/*"]
+      "@tests/*": ["./tests/*"]
     }
   },
   "include": [

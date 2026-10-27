@@ -5,18 +5,20 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  root: "./src/infraestructure/adapters/input/web", 
   plugins: [
     react(),
     tailwindcss(),
   ],
+  resolve: {
+    tsconfigPaths: true
+  },
   test: {
     globals: true,
     environment: 'jsdom',
     setupFiles: [path.resolve(process.cwd(), 'tests/setup.ts')],
   },
   build: {
-    outDir: './dist',
+    outDir: './src/infraestructure/adapters/input/web/dist',
     emptyOutDir: true
   },
 })

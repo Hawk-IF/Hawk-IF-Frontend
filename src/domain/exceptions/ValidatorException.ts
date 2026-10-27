@@ -1,13 +1,13 @@
 import BaseException, { TErrorCodes } from "./BaseException";
 
-export type TError = {
+export type TErrorValidator = {
     field: string, 
     message: string
 }
 
 class ValidatorException extends BaseException {
     constructor (
-        errors: TError[] = [],
+        errors: TErrorValidator[] = [],
         message: string = "Falha na validação."
     ) {
         const customMessage: string = errors.length > 0 

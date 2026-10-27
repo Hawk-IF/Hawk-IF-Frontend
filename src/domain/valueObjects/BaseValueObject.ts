@@ -2,6 +2,7 @@ import ValueObjectException from "../exceptions/ValueObjectException"
 
 abstract class BaseValueObject<T> {
     protected _value!: T
+    protected abstract _brand: string
 
     constructor(
         value: T
@@ -29,6 +30,8 @@ abstract class BaseValueObject<T> {
         if (vo.value === undefined && this.value === undefined) return true
 
         if (vo.value === undefined) return false
+
+        if (this._brand !== vo._brand) return false
 
         if (typeof this.value === "object" && this.value !== null) {
             return JSON.stringify(this.value) === JSON.stringify(vo.value)

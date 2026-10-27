@@ -1,14 +1,14 @@
-import type { TError } from "../exceptions/ValidatorException";
+import type { TErrorValidator } from "../exceptions/ValidatorException";
 import BaseValidator from "./BaseValidator";
 
 class CurrentDateValidator extends BaseValidator {
-    public validate(field: string, value: Date) {
+    public validate(field: string, value: Date): TErrorValidator | void {
         const dateNow = Date.now()
         const valueTime = value.getTime() 
         const diff = Math.abs(dateNow - valueTime)
 
         if (diff > 1000) {
-            const error: TError = {
+            const error: TErrorValidator = {
                 field: field, 
                 message: "A data fornecida não corresponde ao momento atual."
             }

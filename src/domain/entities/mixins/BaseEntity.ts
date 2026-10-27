@@ -15,8 +15,6 @@ abstract class BaseEntity {
     protected _created_by: UUID | null | undefined
     protected _updated_by: UUID | null | undefined
 
-    protected constructor() {}
-
     public static create<T extends BaseEntity>(
         this: new () => T,
         created_by: UUID | null,
@@ -61,11 +59,11 @@ abstract class BaseEntity {
     }
 
     set created_at(new_created_at: Date) {
-        const currentDateValidate = currentDateValidator.validate("created_at", new_created_at)
-        if (currentDateValidate) throw new ValidatorException([currentDateValidate])
-
         const notNullValidate = notNullValidator.validate("created_at", new_created_at)
         if (notNullValidate) throw new ValidatorException([notNullValidate])
+
+        const currentDateValidate = currentDateValidator.validate("created_at", new_created_at)
+        if (currentDateValidate) throw new ValidatorException([currentDateValidate])
 
         this._created_at = new_created_at
     }
@@ -75,11 +73,11 @@ abstract class BaseEntity {
     }
 
     set updated_at(new_updated_at: Date) {
-        const currentDateValidate = currentDateValidator.validate("updated_at", new_updated_at)
-        if (currentDateValidate) throw new ValidatorException([currentDateValidate])
-
         const notNullValidate = notNullValidator.validate("updated_at", new_updated_at)
         if (notNullValidate) throw new ValidatorException([notNullValidate])
+
+        const currentDateValidate = currentDateValidator.validate("updated_at", new_updated_at)
+        if (currentDateValidate) throw new ValidatorException([currentDateValidate])
 
         this._updated_at = new_updated_at
     }

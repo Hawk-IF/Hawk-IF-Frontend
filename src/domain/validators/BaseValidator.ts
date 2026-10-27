@@ -1,7 +1,7 @@
-import { type TError } from "../exceptions/ValidatorException"
+import { type TErrorValidator } from "../exceptions/ValidatorException"
 
 abstract class BaseValidator {
-    public abstract validate(field: string, value: unknown): TError | void
+    public abstract validate(field: string, value: unknown): TErrorValidator | void
 }
 
 export default BaseValidator

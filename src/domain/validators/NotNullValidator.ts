@@ -1,10 +1,10 @@
-import type { TError } from "../exceptions/ValidatorException";
+import type { TErrorValidator } from "../exceptions/ValidatorException";
 import BaseValidator from "./BaseValidator";
 
 class NotNullValidator extends BaseValidator {
-    public validate(field: string, value: Date) {
+    public validate(field: string, value: unknown): TErrorValidator | void {
         if (value === null) {
-            const error: TError = {
+            const error: TErrorValidator = {
                 field: field, 
                 message: "O valor não pode ser nulo."
             }

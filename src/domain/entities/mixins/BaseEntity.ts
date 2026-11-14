@@ -15,6 +15,8 @@ abstract class BaseEntity {
     protected _created_by: UUID | null | undefined
     protected _updated_by: UUID | null | undefined
 
+    private constructor() {}
+
     public static create<T extends BaseEntity>(
         this: new () => T,
         created_by: UUID | null,

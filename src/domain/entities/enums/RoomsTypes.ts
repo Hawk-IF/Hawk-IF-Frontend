@@ -1,0 +1,7 @@
+export enum RoomsTypes {
+    LABORATORY = "LABORATORY",
+    CLASSROOM = "CLASSROOM",
+    TEACHER = "TEACHER",
+    MANAGEMENT = "MANAGEMENT",
+    OTHERS = "OTHERS",
+}

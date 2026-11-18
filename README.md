@@ -1,6 +1,6 @@
-# HawkIF Frontend
+# Hawk-IF-Frontend
 
-Frontend do projeto **Hawk-IF**. Esse repositório busca entregar uma interface WEB com acessibilidade, segurança e otimização, consumindo o Backend do projeto para 
+Frontend do projeto **Hawk-IF**. Este repositório busca entregar uma interface web com acessibilidade, segurança e otimização, consumindo o Backend do projeto para exibir o status das salas, realizar agendamentos e gerenciar os recursos disponíveis.
 
 ---
 

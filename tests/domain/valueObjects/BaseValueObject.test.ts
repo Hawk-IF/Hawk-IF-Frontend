@@ -2,6 +2,7 @@ import { describe, test, expect } from "vitest";
 import BaseValueObject from "@domain/valueObjects/BaseValueObject";
 import ValueObjectException from "@domain/exceptions/ValueObjectException";
 import UUID from "@/src/domain/valueObjects/UUID";
+import Email from "@/src/domain/valueObjects/Email";
 
 class FakeValueObject extends BaseValueObject<string> {
     protected _brand: string = "FakeValueObject";
@@ -43,6 +44,12 @@ const valueObjectsClass: TValueObjectClass[] = [
         validValue: "d7d5ea77-c19e-4b78-878c-b90f9983a084",
         invalidValue: "d7d5ea77-c19e-4b78-878cb90f9983a084",
         textException: "O valor 'd7d5ea77-c19e-4b78-878cb90f9983a084' não é um UUID válido."
+    },
+    {
+        valueObject: Email,
+        validValue: "test@gmail.com",
+        invalidValue: "testgmail.com",
+        textException: "O valor 'testgmail.com' não é um Email válido."
     },
 ]
 

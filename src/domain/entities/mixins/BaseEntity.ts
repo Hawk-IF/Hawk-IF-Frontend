@@ -15,43 +15,6 @@ abstract class BaseEntity {
     protected _created_by: UUID | null | undefined
     protected _updated_by: UUID | null | undefined
 
-    private constructor() {}
-
-    public static create<T extends BaseEntity>(
-        this: new () => T,
-        created_by: UUID | null,
-        updated_by: UUID | null,
-    ): T {
-        const instance = new this()
-
-        const dateNow = new Date()
-
-        instance.created_at = dateNow
-        instance.updated_at = dateNow
-        instance.created_by = created_by
-        instance.updated_by = updated_by
-
-        return instance
-    }
-
-    public static reconstruct<T extends BaseEntity>(
-        this: new () => T,
-        id: UUID,
-        created_at: Date,
-        updated_at: Date,
-        created_by: UUID | null,
-        updated_by: UUID | null,
-    ): T { 
-        const instance = new this()
-
-        instance._id = id
-        instance._created_at = created_at
-        instance._updated_at = updated_at
-        instance._created_by = created_by
-        instance._updated_by = updated_by
-
-        return instance
-    }
     get id(): UUID | undefined {
         return this._id
     }
